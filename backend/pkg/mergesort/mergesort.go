@@ -1,18 +1,20 @@
-package main
+package mergesort
 
-import "fmt"
+import (
+	"fmt"
 
-func not_main() {
+	"bufio"
+
+	"os"
+)
+
+func BeginSort() {
 
 	// Slice literal to sort
-	var toSort = []int{54, 56, 0, 99, 1, -1000, 200220, 89}
-
-	fmt.Printf("Hi\n")
+	var toSort = []int{5, 4, 6, 9, 100}
 
 	fmt.Println(toSort)
-
 	mergeSort(toSort, len(toSort))
-
 	fmt.Println(toSort)
 
 }
@@ -49,7 +51,15 @@ func merge(toSort []int, leftSlice []int, rightSlice []int, left int, right int)
 			break
 		}
 
-		if leftSlice[i] <= rightSlice[j] {
+		fmt.Printf("Is ")
+		fmt.Println(leftSlice[i])
+		fmt.Printf("bigger than ")
+		fmt.Println(rightSlice[j])
+
+		reader := bufio.NewReader(os.Stdin)
+		char, _, _ := reader.ReadRune()
+
+		if char != 'y' {
 
 			toSort[k] = leftSlice[i]
 			i++
@@ -59,21 +69,14 @@ func merge(toSort []int, leftSlice []int, rightSlice []int, left int, right int)
 			toSort[k] = rightSlice[j]
 			j++
 		}
+
 		k++
 	}
 
-	for i < left {
-
-		toSort[k] = leftSlice[i]
-		i++
-		k++
-	}
-
-	for j < right {
-
-		toSort[k] = rightSlice[j]
-		j++
-		k++
+	if i < left {
+		copy(toSort[k:], leftSlice[i:])
+	} else if j < right {
+		copy(toSort[k:], rightSlice[j:])
 	}
 
 }

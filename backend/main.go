@@ -5,6 +5,8 @@ import (
 	"net/http"
 
 	"github.com/neuromantic99/manualsort/pkg/websocket"
+	"github.com/neuromantic99/manualsort/pkg/mergesort"
+
 )
 
 // define our WebSocket endpoint
@@ -28,10 +30,11 @@ func setupRoutes() {
 	// Call the serveWs function when get a http request
 	// map our `/ws` endpoint to the `serveWs` function
 	http.HandleFunc("/ws", serveWs)
-}
-
+} 
 func main() {
 	fmt.Println("Howdy from manual-sort")
 	setupRoutes()
+	mergesort.BeginSort()
 	http.ListenAndServe(":8080", nil)
 }
+

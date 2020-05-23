@@ -40,7 +40,6 @@ func Upgrade(w http.ResponseWriter, r *http.Request) (*websocket.Conn, error) {
 // Prints all incoming messages to command line
 func Reader(conn *websocket.Conn) {
     for {
-				fmt.Println("Reader called")
         messageType, p, err := conn.ReadMessage()
         if err != nil {
             log.Println(err)
@@ -59,7 +58,6 @@ func Reader(conn *websocket.Conn) {
 // Writes message through a websocket connection
 func Writer(conn *websocket.Conn) {
     for {
-				fmt.Println("Writer called")
 
         messageType, r, err := conn.NextReader()
         if err != nil {
