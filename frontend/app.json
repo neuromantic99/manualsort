@@ -1,0 +1,17 @@
+{
+  "name": "manual-sort",
+  "displayName": "manual-sort",
+  "expo": {
+    "name": "manual-sort",
+    "slug": "manual-sort",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
