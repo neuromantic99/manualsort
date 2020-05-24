@@ -1,10 +1,17 @@
-# JR additions to bundled native bundled ignores
-**.swp
-#
+### JR additions to bundled native bundled ignores
+
+# Vim
+.*.swp
+.*.swo
+.*.swn
+.*.swm
+
+# Expo
+.expo
+__generated__
 #
 #
 # OSX
-#
 .DS_Store
 
 # Xcode

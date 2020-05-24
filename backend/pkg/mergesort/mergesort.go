@@ -2,10 +2,7 @@ package mergesort
 
 import (
 	"fmt"
-
-	"bufio"
-
-	"os"
+	"github.com/neuromantic99/manualsort/pkg/websocket"
 )
 
 func BeginSort() {
@@ -56,10 +53,9 @@ func merge(toSort []int, leftSlice []int, rightSlice []int, left int, right int)
 		fmt.Printf("bigger than ")
 		fmt.Println(rightSlice[j])
 
-		reader := bufio.NewReader(os.Stdin)
-		char, _, _ := reader.ReadRune()
+		str := websocket.Reader()
 
-		if char != 'y' {
+		if str != "Yes" {
 
 			toSort[k] = leftSlice[i]
 			i++
@@ -80,4 +76,3 @@ func merge(toSort []int, leftSlice []int, rightSlice []int, left int, right int)
 	}
 
 }
-
